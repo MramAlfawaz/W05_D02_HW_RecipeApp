@@ -1,0 +1,37 @@
+<h1>Foods</h1>
+<% foods.forEach((foods)=>{%>
+
+<div>
+  <h2> 
+    <%= foods.name %>
+  </h2>
+</div>
+
+<div>
+  <img src="<%= foods.image %>" alt="Food Image" width="200" height="200" />
+</div>
+<div>
+  <form
+    method="POST"
+    action="/food/<%= foods._id %>/delete?_method=DELETE"
+  >
+    <button type="submit">Delete Food</button>
+  </form>
+</div> 
+<div>
+<h2> the ingredients:</h2>
+</div>
+<div style="display: inline; border: none;"> 
+
+  <% foods.ingredients.forEach((ingredients)=>{ %>
+  <div style="float: left;">
+    <p>
+    <%= ingredients.name %>
+  </p>
+
+  <img width="100" height="100" src="<%= ingredients.image %>" alt="Food Image" />
+</div>
+  <% }) %>
+</div>
+<div style="clear: both;"></div>
+<%}) %>
